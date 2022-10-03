@@ -6,7 +6,7 @@ class Solution:
         for x in range(len(nums)):
             prefixSum[x + 1] = prefixSum[x] + nums[x]
         
-        def findSum(prefix,f,s):
+        def Sum(prefix,f,s):
             max1,max2 = 0, 0
             for y in range(len(prefix) - f - s):
                 first = prefix[y + f] - prefix[y]
@@ -16,7 +16,7 @@ class Solution:
                 max2 = max(max2,max1+second)
             return max2
         
-        maxsum1 = findSum(prefixSum,firstLen,secondLen)
-        maxsum2 = findSum(prefixSum,secondLen,firstLen)
+        maxsum1 = Sum(prefixSum,firstLen,secondLen)
+        maxsum2 = Sum(prefixSum,secondLen,firstLen)
         
         return max(maxsum1,maxsum2);
